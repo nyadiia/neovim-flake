@@ -122,7 +122,7 @@ in
 
       filterNonNull = mappings: filterAttrs (name: value: value != null) mappings;
       globalsScript =
-        mapAttrsFlatten (name: value: "let g:${name}=${valToVim value}")
+        mapAttrsToList (name: value: "let g:${name}=${valToVim value}")
           (filterNonNull cfg.globals);
 
       matchCtrl = it: match "Ctrl-(.)(.*)" it;
@@ -134,7 +134,7 @@ in
         then it
         else "<C-${toUpper (head groups)}>${head (tail groups)}";
       mapVimBinding = prefix: mappings:
-        mapAttrsFlatten (name: value: "${prefix} ${mapKeyBinding name} ${value}")
+        mapAttrsToList (name: value: "${prefix} ${mapKeyBinding name} ${value}")
           (filterNonNull mappings);
 
       nmap = mapVimBinding "nmap" config.vim.nmap;
