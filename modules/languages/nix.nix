@@ -55,6 +55,12 @@ with builtins; let
                 command = {"${cfg.format.package}/bin/nixpkgs-fmt"},
               },
             ''}
+          ${optionalString (cfg.format.type == "nixfmt-rfc-style")
+            ''
+              formatting = {
+                command = {"${cfg.format.package}/bin/nixfmt"},
+              },
+            ''}
             },
           };
         ''}
@@ -79,6 +85,9 @@ with builtins; let
     nixpkgs-fmt = {
       package = [ "nixpkgs-fmt" ];
       # Never need to use null-ls for nixpkgs-fmt
+    };
+    nixfmt-rfc-style = {
+      package = [ "nixfmt-rfc-style" ];
     };
   };
 
