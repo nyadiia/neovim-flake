@@ -128,5 +128,18 @@ in
       ];
       defaultStyle = "dark";
     };
+
+    gruvbox-material = {
+      setup = ''
+        vim.g.gruvbox_material_enable_italic = true
+        vim.o.background = "${cfg.style}"
+        vim.cmd.colorscheme "gruvbox-material"
+      '';
+      styles = [
+        "dark"
+        "light"
+      ];
+      defaultStyle = "dark";
+    };
   };
 }

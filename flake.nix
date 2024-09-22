@@ -170,6 +170,9 @@
     plugin-gruvbox.url = "github:ellisonleao/gruvbox.nvim";
     plugin-gruvbox.flake = false;
 
+    plugin-gruvbox-material.url = "github:sainnhe/gruvbox-material";
+    plugin-gruvbox-material.flake = false;
+
     plugin-oxocarbon.url = "github:nyoom-engineering/oxocarbon.nvim";
     plugin-oxocarbon.flake = false;
 
